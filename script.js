@@ -5,6 +5,7 @@ filterName = document.querySelector('.filter-info .name'),
 filterValue = document.querySelector('.filter-info .value'),
 filterSlider = document.querySelector('.slider input'),
 previewImg = document.querySelector('.preview-image img'),
+resetFilterBtn = document.querySelector('.reset-filter'),
 chooseImgBtn = document.querySelector('.choose-img');
 
 let brightness = 100, saturation = 100, inversion = 0, grayscale = 0;
@@ -75,7 +76,14 @@ filpOptions.forEach(option =>{
        applyFilter();
     })
 })
+const resetFilters = ()=>{
+     brightness = 100, saturation = 100, inversion = 0, grayscale = 0;
+     rotate = 0, filpHorizontal = 1,filpVertical = 1;
+     filpOptions[0].click();
+    applyFilter();
 
+}
 fileInput.addEventListener('change',loadImage);
 filterSlider.addEventListener('input',updateFilter)
+resetFilterBtn.addEventListener('click',resetFilters)
 chooseImgBtn.addEventListener('click',()=> fileInput.click());

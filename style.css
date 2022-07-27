@@ -96,6 +96,7 @@ background: #f5f5f5;
 .wrapper .preview-image{
     margin-left: 20px;
     display: flex;
+    overflow: hidden;
     align-items: center;
     justify-content: center;
     flex-grow: 1;
