@@ -10,21 +10,21 @@
     <link rel="stylesheet" href="./style.css">
 </head>
 <body>
-    <div class="container disable">
+    <div class="container ">
         <h2>Easy Image Editor</h2>
         <div class="wrapper">
             <div class="editor-panel">
                 <div class="filter">
                     <label class="title">Filter</label>
                     <div class="options">
-                        <button class="active">Briteness</button>
-                        <button>Saturation</button>
-                        <button>Inversion</button>
-                        <button>Grayscale</button>
+                        <button id="brightness" class="active">Brightness</button>
+                        <button id="saturation">Saturation</button>
+                        <button id="inversion">Inversion</button>
+                        <button id="grayscale">Grayscale</button>
                     </div>
                     <div class="slider">
                         <div class="filter-info">
-                            <p class="name">Briteness</p>
+                            <p class="name">Brightness</p>
                             <p class="value">100%</p>
                         </div>
                         <input type="range" value="100" min="0" max="200">
