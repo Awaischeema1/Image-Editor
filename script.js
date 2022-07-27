@@ -1,5 +1,6 @@
 const fileInput = document.querySelector('.file-input'),
 filterOptions = document.querySelectorAll('.filter button'),
+filpOptions = document.querySelectorAll('.rotate button'),
 filterName = document.querySelector('.filter-info .name'),
 filterValue = document.querySelector('.filter-info .value'),
 filterSlider = document.querySelector('.slider input'),
@@ -7,7 +8,9 @@ previewImg = document.querySelector('.preview-image img'),
 chooseImgBtn = document.querySelector('.choose-img');
 
 let brightness = 100, saturation = 100, inversion = 0, grayscale = 0;
+let rotate = 0, filpHorizontal = 1,filpVertical = 1;
 const applyFilter = ()=>{
+    previewImg.style.transform = `rotate(${rotate}deg) scale(${filpHorizontal},${filpVertical})`
     previewImg.style.filter = `brightness(${brightness}%) saturate(${saturation}%) invert(${inversion}%) grayscale(${grayscale}%)`
 }
 
@@ -58,6 +61,20 @@ if(selectedFilter.id === 'brightness'){
 applyFilter();
 
 }
+filpOptions.forEach(option =>{
+    option.addEventListener('click',()=>{
+       if(option.id === 'left'){
+        rotate -= 90;
+       }else if(option.id === 'right'){
+        rotate += 90
+       }else if(option.id === 'vertical'){
+        filpVertical = filpVertical === 1? -1:1;
+       }else if(option.id === 'horizontal'){
+        filpHorizontal = filpHorizontal === 1? -1:1;
+       }
+       applyFilter();
+    })
+})
 
 fileInput.addEventListener('change',loadImage);
 filterSlider.addEventListener('input',updateFilter)
