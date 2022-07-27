@@ -7,6 +7,9 @@ previewImg = document.querySelector('.preview-image img'),
 chooseImgBtn = document.querySelector('.choose-img');
 
 let brightness = 100, saturation = 100, inversion = 0, grayscale = 0;
+const applyFilter = ()=>{
+    previewImg.style.filter = `brightness(${brightness}%) saturate(${saturation}%) invert(${inversion}%) grayscale(${grayscale}%)`
+}
 
 const loadImage = ()=>{
 let file = fileInput.files[0];
@@ -52,6 +55,7 @@ if(selectedFilter.id === 'brightness'){
 }else if(selectedFilter.id === 'grayscale'){
     grayscale = filterSlider.value
 }
+applyFilter();
 
 }
 
